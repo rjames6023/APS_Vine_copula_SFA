@@ -443,7 +443,7 @@ def main():
     #Setup simulation parameters
     estimation_methods = ['QMLE', 'Gaussian Copula', 'APS3A', 'APS3B', 'Vine_APS3A', 'Vine_APS3B']
     num_iterations = 1000
-    num_integral_sample = 1000
+    num_integral_sample = 100
     true_sigma2u = 1 #variance of technical inefficiency term
     true_sigma2v = 1 #variance of symmetric random noise term 
     true_sigma2w1 = 1 #variance of the inefficiency term for production unit 1
