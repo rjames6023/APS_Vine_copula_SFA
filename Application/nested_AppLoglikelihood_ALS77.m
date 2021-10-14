@@ -45,7 +45,7 @@ function [logMLE, theta, sterr, u_hat, non_par_u_hat, V_u_hat, u_hat_conditional
     
         %Compute kernel estimates for E[u|eps]
             %Bandwidth information for each conditioning variable
-    h = 1.06*n^(-1/5)*[max(std(obs_eps), iqr(obs_eps)/1.34)];    
+    h = 1.06*n^(-1/5)*[max(std(simulated_eps), iqr(simulated_eps)/1.34)];    
     
     kernel_regression_results1 = zeros(n,1);
     for i= 1:n

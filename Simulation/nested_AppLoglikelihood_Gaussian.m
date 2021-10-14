@@ -66,8 +66,8 @@ function [theta, sterr, u_hat, non_par_u_hat, u_hat_conditional_w1w2] = nested_A
     simulated_eps = simulated_v - simulated_u; %Construct simulated eps (v-u)
 
     %Bandwidth information for each conditioning variable
-    h = 1.06*n^(-1/5)*[max(std(obs_eps), iqr(obs_eps)/1.34) max(std(obs_w1), iqr(obs_w1)/1.34) max(std(obs_w2), iqr(obs_w2)/1.34)];
-
+    h = 1.06*n^(-1/5)*[max(std(simulated_eps), iqr(simulated_eps)/1.34) max(std(simulated_w1), iqr(simulated_w1)/1.34) max(std(simulated_w2), iqr(simulated_w2)/1.34)];
+  
      %Compute kernel estimates for E[u|eps, w1, w2]
     kernel_regression_results1 = zeros(n,1);
     for i= 1:n

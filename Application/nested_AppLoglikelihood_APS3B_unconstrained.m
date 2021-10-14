@@ -54,7 +54,7 @@ function [logMLE, theta, sterr, u_hat, V_u_hat, non_par_u_hat, u_hat_conditional
     rep_obs_w2 = reshape(repelem(obs_w2, S_kernel), S_kernel, n);
     rep_obs_w3 = reshape(repelem(obs_w3, S_kernel), S_kernel, n);
 
-            %Sample from APS3A copula using Rosenblatt transforms
+    %Sample from APS3A copula using Rosenblatt transforms
 %     syms u1 u2 u3 theta theta
 %     APS2B_CDF1 = u1*u2 + theta*u1*(1 - u1)*(u2 - 2*u2 + 2*u2^2);
 %     APS2B_CDF2 = u1*u2 + theta*u1*(1 - u1)*(u2 - 1 + 2*u2 - 2*u2^2);
@@ -90,7 +90,7 @@ function [logMLE, theta, sterr, u_hat, V_u_hat, non_par_u_hat, u_hat_conditional
     simulated_eps = simulated_v - simulated_u; %Construct simulated eps (v-u)    
     
            %Bandwidth information for each conditioning variable
-    h = 1.06*n^(-1/5)*[max(std(obs_eps), iqr(obs_eps)/1.34) max(std(obs_w2), iqr(obs_w2)/1.34) max(std(obs_w3), iqr(obs_w3)/1.34)];
+    h = 1.06*n^(-1/5)*[max(std(simulated_eps), iqr(simulated_eps)/1.34) max(std(simulated_w2), iqr(simulated_w2)/1.34) max(std(simulated_w3), iqr(simulated_w3)/1.34)];
  
         %Compute kernel estimates for E[u|eps]
     kernel_regression_results1 = zeros(n,1);

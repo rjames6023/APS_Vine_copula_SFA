@@ -103,7 +103,7 @@ function [logMLE, theta, sterr, u_hat, V_u_hat, non_par_u_hat, u_hat_conditional
     simulated_eps = simulated_v - simulated_u; %Construct simulated eps (v-u)  
 
            %Bandwidth information for each conditioning variable
-    h = 1.06*n^(-1/5)*[max(std(obs_eps), iqr(obs_eps)/1.34) max(std(obs_w2), iqr(obs_w2)/1.34) max(std(obs_w3), iqr(obs_w3)/1.34)];
+    h = 1.06*n^(-1/5)*[max(std(simulated_eps), iqr(simulated_eps)/1.34) max(std(simulated_w2), iqr(simulated_w2)/1.34) max(std(simulated_w3), iqr(simulated_w3)/1.34)];
  
         %Compute kernel estimates for E[u|eps]
     kernel_regression_results1 = zeros(n,1);
